@@ -6,7 +6,8 @@ namespace BankingAppMarch
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var a1 = new Account();
+            a1.Balance = 10000000000000000;
         }
     }
 }
