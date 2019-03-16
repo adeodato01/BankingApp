@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/BankingAppMarch/v15/Server/sqlite3
+/BankingAppMarch/bin/Debug/netcoreapp2.1
+/.vs/BankingAppMarch/v15
+/BankingAppMarch/obj
