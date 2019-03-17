@@ -11,11 +11,16 @@ namespace BankingAppMarch
     /// </summary>
     class Account
     {
+        #region Statics
+        private static int lastAccountNumber = 0;
+        #endregion
+
+
         #region Properties
         /// <summary>
         /// Unique number for the account
         /// </summary>
-        public int AccountNumber { get; set; }
+        public int AccountNumber { get; private set; }
         /// <summary>
         /// email address of the account holder
         /// </summary>
@@ -23,7 +28,7 @@ namespace BankingAppMarch
         /// <summary>
         /// the dollar amount of the account
         /// </summary>
-        public decimal Balance { get; set; }
+        public decimal Balance { get; private set; }
         /// <summary>
         /// description of the type of account
         /// </summary>
@@ -31,8 +36,20 @@ namespace BankingAppMarch
         /// <summary>
         /// date the account was created
         /// </summary>
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; private set; }
         #endregion
+
+        #region Constructor
+        public Account()
+        {
+            //lastAccountNumber++; ** this is Post-Incriment
+            //AccountNumber = lastAccountNumber;
+
+            AccountNumber = ++lastAccountNumber; //this is a Pre-Incriment
+            CreatedDate = DateTime.Now;
+        }
+        #endregion
+
 
         #region Methods
 
