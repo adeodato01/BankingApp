@@ -4,9 +4,12 @@ using System.Text;
 
 namespace BankingAppMarch
 {
+    /// <summary>
+    /// This is a Factory Class
+    /// </summary>
     static class Bank
     {
-        public static Account CreateAccount(string emailAddress, string accountType, decimal initialDeposit)
+        public static Account CreateAccount(string emailAddress, AccountType accountType, decimal initialDeposit)
         {
             var a1 = new Account
             {

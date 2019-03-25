@@ -4,11 +4,21 @@ using System.Text;
 
 namespace BankingAppMarch
 {
+    
+    enum AccountType
+    {
+        Checking,
+        Savings,
+        CD,
+        Loan
+    }
+    
     /// <summary>
     /// Account that represents
     /// bank account where you can 
     /// withdraw or deposit money
     /// </summary>
+
     class Account
     {
         #region Statics
@@ -32,7 +42,7 @@ namespace BankingAppMarch
         /// <summary>
         /// description of the type of account
         /// </summary>
-        public string AccountType { get; set; }
+        public AccountType AccountType { get; set; } //AccountType has been added
         /// <summary>
         /// date the account was created
         /// </summary>
