@@ -33,7 +33,7 @@ namespace BankingAppMarch
                         var accountTypes = Enum.GetNames(typeof(AccountType));
                         for (int i = 0; i < accountTypes.Length; i++)
                         {
-                            Console.WriteLine($"{i}. {accountTypes[i]}");
+                            Console.WriteLine($"{i+1}. {accountTypes[i]}");
                         }
 
                         Console.Write("Account Type: ");

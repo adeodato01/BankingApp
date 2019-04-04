@@ -7,7 +7,7 @@ namespace BankingAppMarch
     
     enum AccountType
     {
-        Checking,
+        Checking=1,
         Savings,
         CD,
         Loan
