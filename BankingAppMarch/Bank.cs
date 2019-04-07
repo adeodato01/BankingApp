@@ -12,9 +12,23 @@ namespace BankingAppMarch
     {
 
         private static List<Account> accounts = new List<Account>();
+        private static List<Transaction> transactions = new List<Transaction>();
 
+        /// <summary>
+        /// Creates an account in the bank
+        /// </summary>
+        /// <param name="emailAddress">Email address of the account</param>
+        /// <param name="accountType">Type of the account</param>
+        /// <param name="initialDeposit">Initial amount to deposit</param>
+        /// <returns>Newly created account</returns>
+        /// <exception cref="ArgumentNullException" />
         public static Account CreateAccount(string emailAddress, AccountType accountType, decimal initialDeposit)
         {
+            if (string.IsNullOrEmpty(emailAddress) || string.IsNullOrWhiteSpace(emailAddress))
+            {
+                throw new ArgumentNullException("emailAddress", "Email Address is required!");
+            }
+
             var a1 = new Account
             {
                 EmailAddress = emailAddress,
@@ -42,8 +56,7 @@ namespace BankingAppMarch
             var account = accounts.SingleOrDefault(a => a.AccountNumber == accountNumber); //This is a LINQ query
             if (account == null)
             {
-                //Throw exception
-                return null;
+                throw new ArgumentNullException("account", "Account number is invalid");
             }
             return account;
         }
@@ -53,12 +66,40 @@ namespace BankingAppMarch
         {
             var account = GetAccountByAccountNumber(accountNumber);
             account.Deposit(amount);
+
+            var transaction = new Transaction
+            {
+                TransactionDate = DateTime.Now,
+                TransactionType = TransactionType.Credit,
+                Description = "Bank deposit",
+                Amount = amount,
+                AccountNumber = accountNumber
+            };
+
+            transactions.Add(transaction);
         }
 
         public static void Withdraw(int accountNumber, decimal amount)
         {
             var account = GetAccountByAccountNumber(accountNumber);
             account.Withdraw(amount);
+
+            if (amount > account.Balance)
+            {
+                throw new ArgumentOutOfRangeException("amount", "Amount exceeds the balance.");
+            }
+
+            var transaction = new Transaction
+            {
+                TransactionDate = DateTime.Now,
+                TransactionType = TransactionType.Debit,
+                Description = "Bank deposit",
+                Amount = amount,
+                AccountNumber = accountNumber
+            };
+
+            transactions.Add(transaction);
+
         }
     }
 }

@@ -27,24 +27,44 @@ namespace BankingAppMarch
                         Console.WriteLine("Thank you for visiting the bank!");
                         return;
                     case "1":
-                        Console.Write("Email Address: ");
-                        var emailAddress = Console.ReadLine();
-
-                        var accountTypes = Enum.GetNames(typeof(AccountType));
-                        for (int i = 0; i < accountTypes.Length; i++)
+                        try
                         {
-                            Console.WriteLine($"{i+1}. {accountTypes[i]}");
+                            Console.Write("Email Address: ");
+                            var emailAddress = Console.ReadLine();
+
+                            var accountTypes = Enum.GetNames(typeof(AccountType));
+                            for (int i = 0; i < accountTypes.Length; i++)
+                            {
+                                Console.WriteLine($"{i + 1}. {accountTypes[i]}");
+                            }
+
+                            Console.Write("Account Type: ");
+                            var accountType = Enum.Parse<AccountType>(Console.ReadLine());
+
+                            Console.Write("Amount to deposit: ");
+                            var amount = Convert.ToDecimal(Console.ReadLine());
+
+                            var a1 = Bank.CreateAccount(emailAddress, accountType, amount);
+
+                            Console.WriteLine($"AN: {a1.AccountNumber}, CD: {a1.CreatedDate}, Balance: {a1.Balance:C}, EA: {a1.EmailAddress}, AT: {a1.AccountType}"); //check out formatting like :C
                         }
-
-                        Console.Write("Account Type: ");
-                        var accountType = Enum.Parse<AccountType>(Console.ReadLine());
-
-                        Console.Write("Amount to deposit: ");
-                        var amount = Convert.ToDecimal(Console.ReadLine());
-
-                        var a1 = Bank.CreateAccount(emailAddress, accountType, amount);
-
-                        Console.WriteLine($"AN: {a1.AccountNumber}, CD: {a1.CreatedDate}, Balance: {a1.Balance:C}, EA: {a1.EmailAddress}, AT: {a1.AccountType}"); //check out formatting like :C
+                        catch (ArgumentNullException nx)
+                        {
+                            Console.WriteLine($"Email Address Error - {nx.Message} - Please try again!");
+                        }
+                        catch (ArgumentException ax)
+                        {
+                            Console.WriteLine($"Account Type Error - {ax.Message} - Please try again!");
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Amount Error - Please provide a valid amount. Try again!");
+                        }
+                        
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Sorry something went wrong - {ex.Message} - Please try again");
+                        }
                         break;
                     case "2":
                         PrintAllAccounts();
