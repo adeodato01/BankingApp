@@ -21,10 +21,7 @@ namespace BankingAppMarch
 
     class Account
     {
-        #region Statics
-        private static int lastAccountNumber = 0;
-        #endregion
-
+        
 
         #region Properties
         /// <summary>
@@ -52,10 +49,7 @@ namespace BankingAppMarch
         #region Constructor
         public Account()
         {
-            //lastAccountNumber++; ** this is Post-Incriment
-            //AccountNumber = lastAccountNumber;
-
-            AccountNumber = ++lastAccountNumber; //this is a Pre-Incriment
+        
             CreatedDate = DateTime.Now;
         }
         #endregion

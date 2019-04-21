@@ -11,8 +11,7 @@ namespace BankingAppMarch
     static class Bank
     {
 
-        private static List<Account> accounts = new List<Account>();
-        private static List<Transaction> transactions = new List<Transaction>();
+        private static BankContext db = new BankContext();
 
         /// <summary>
         /// Creates an account in the bank
@@ -41,19 +40,26 @@ namespace BankingAppMarch
             }
 
 
-            accounts.Add(a1);
-
+            db.Accounts.Add(a1);
+            db.SaveChanges();
             return a1;
         }
 
-        public static IEnumerable<Account> GetAllAccountsForUser()
+        public static IEnumerable<Account> GetAllAccountsForUser(string emailAddress)
         {
-            return accounts;
+            return db.Accounts.Where(a => a.EmailAddress == emailAddress);
+        }
+
+        public static IEnumerable<Transaction> GetTransactionsForAccountNumber(int accountNumber)
+        {
+            return db.Transactions
+                .Where(t => t.AccountNumber == accountNumber)
+                .OrderByDescending(t => t.TransactionDate);
         }
 
         private static Account GetAccountByAccountNumber(int accountNumber)
         {
-            var account = accounts.SingleOrDefault(a => a.AccountNumber == accountNumber); //This is a LINQ query
+            var account = db.Accounts.SingleOrDefault(a => a.AccountNumber == accountNumber); //This is a LINQ query
             if (account == null)
             {
                 throw new ArgumentNullException("account", "Account number is invalid");
@@ -76,7 +82,9 @@ namespace BankingAppMarch
                 AccountNumber = accountNumber
             };
 
-            transactions.Add(transaction);
+            db.Transactions.Add(transaction);
+
+            db.SaveChanges();
         }
 
         public static void Withdraw(int accountNumber, decimal amount)
@@ -98,7 +106,9 @@ namespace BankingAppMarch
                 AccountNumber = accountNumber
             };
 
-            transactions.Add(transaction);
+            db.Transactions.Add(transaction);
+
+            db.SaveChanges();
 
         }
     }
