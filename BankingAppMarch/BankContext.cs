@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BankingAppMarch
 {
-    class BankContext : DbContext
+    public class BankContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }

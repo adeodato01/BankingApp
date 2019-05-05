@@ -5,7 +5,7 @@ using System.Text;
 namespace BankingAppMarch
 {
     
-    enum AccountType
+    public enum AccountType
     {
         Checking=1,
         Savings,
@@ -19,7 +19,7 @@ namespace BankingAppMarch
     /// withdraw or deposit money
     /// </summary>
 
-    class Account
+    public class Account
     {
         
 

@@ -8,7 +8,7 @@ namespace BankingAppMarch
     /// <summary>
     /// This is a Factory Class
     /// </summary>
-    static class Bank
+    public static class Bank
     {
 
         private static BankContext db = new BankContext();
