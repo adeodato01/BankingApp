@@ -23,8 +23,13 @@ using BankUI.Models;
 
 #line default
 #line hidden
+#line 4 "C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\Views\_ViewImports.cshtml"
+using BankingAppMarch;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f4bf800b4b49f5f2fb5dcab6c4206cd3c43f7de4", @"/Views/Accounts/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7cde25da5741bcd468134d5589113bb58656aed8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"220d64456740d736d4c4801eaa3d95e88f0e9932", @"/Views/_ViewImports.cshtml")]
     public class Views_Accounts_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BankingAppMarch.Account>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -144,7 +149,7 @@ using BankUI.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(908, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a6a481370d247afad9446aef0bad7fb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c253dbd4f36346ff850b0454025d9712", async() => {
                 BeginContext(965, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -179,7 +184,7 @@ using BankUI.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(981, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11427d814c92463b9f2da994a91d0511", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "03db14dbbadf443e9a9f01376398ed9d", async() => {
                 BeginContext(1003, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

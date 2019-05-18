@@ -27,7 +27,7 @@ namespace BankingAppMarch
         /// <summary>
         /// Unique number for the account
         /// </summary>
-        public int AccountNumber { get; private set; }
+        public int AccountNumber { get; set; }
         /// <summary>
         /// email address of the account holder
         /// </summary>

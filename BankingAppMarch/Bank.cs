@@ -21,7 +21,7 @@ namespace BankingAppMarch
         /// <param name="initialDeposit">Initial amount to deposit</param>
         /// <returns>Newly created account</returns>
         /// <exception cref="ArgumentNullException" />
-        public static Account CreateAccount(string emailAddress, AccountType accountType, decimal initialDeposit)
+        public static Account CreateAccount(string emailAddress, AccountType accountType, decimal initialDeposit = 0)
         {
             if (string.IsNullOrEmpty(emailAddress) || string.IsNullOrWhiteSpace(emailAddress))
             {
@@ -57,7 +57,7 @@ namespace BankingAppMarch
                 .OrderByDescending(t => t.TransactionDate);
         }
 
-        private static Account GetAccountByAccountNumber(int accountNumber)
+        public static Account GetAccountByAccountNumber(int accountNumber)
         {
             var account = db.Accounts.SingleOrDefault(a => a.AccountNumber == accountNumber); //This is a LINQ query
             if (account == null)
@@ -67,6 +67,15 @@ namespace BankingAppMarch
             return account;
         }
 
+        public static Account UpdateAccount(Account updatedAccount)
+        {
+            var oldAccount = GetAccountByAccountNumber(updatedAccount.AccountNumber);
+            oldAccount.EmailAddress = updatedAccount.EmailAddress;
+            oldAccount.AccountType = updatedAccount.AccountType;
+            db.SaveChanges();
+
+            return oldAccount;
+        }
 
         public static void Deposit(int accountNumber, decimal amount)
         {
@@ -90,12 +99,13 @@ namespace BankingAppMarch
         public static void Withdraw(int accountNumber, decimal amount)
         {
             var account = GetAccountByAccountNumber(accountNumber);
-            account.Withdraw(amount);
-
             if (amount > account.Balance)
             {
                 throw new ArgumentOutOfRangeException("amount", "Amount exceeds the balance.");
             }
+            account.Withdraw(amount);
+
+            
 
             var transaction = new Transaction
             {

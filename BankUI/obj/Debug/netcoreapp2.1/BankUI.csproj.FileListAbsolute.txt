@@ -40,3 +40,6 @@ C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcorea
 C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Details.g.cshtml.cs
 C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Edit.g.cshtml.cs
 C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Index.g.cshtml.cs
+C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Deposit.g.cshtml.cs
+C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Withdraw.g.cshtml.cs
+C:\Users\arvin\OneDrive\Desktop\GitHub\BankingAppMarch\BankUI\obj\Debug\netcoreapp2.1\Razor\Views\Accounts\Transactions.g.cshtml.cs
