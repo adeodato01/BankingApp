@@ -47,6 +47,8 @@ namespace BankingAppMarch
 
         public static IEnumerable<Account> GetAllAccountsForUser(string emailAddress)
         {
+            if (string.IsNullOrEmpty(emailAddress))
+                throw new NullReferenceException();
             return db.Accounts.Where(a => a.EmailAddress == emailAddress);
         }
 
